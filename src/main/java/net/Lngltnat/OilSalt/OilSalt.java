@@ -69,6 +69,8 @@ public class OilSalt {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SHIT);
+            event.accept(ModItems.RAW_OS);
+            event.accept(ModItems.OS_INGOT);
         }
     }
 
