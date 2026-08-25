@@ -2,8 +2,11 @@
   "item.oilsaltmod.shit": "屎",
   "item.oilsaltmod.os_ingot": "油盐锭",
   "item.oilsaltmod.raw_os": "粗油盐",
+
   "block.oilsaltmod.os_block": "油盐块",
   "block.oilsaltmod.deepslate_os_ore": "深层油盐矿石",
   "block.oilsaltmod.os_ore": "油盐矿石",
-  "block.oilsaltmod.raw_os_block": "粗油盐块"
+  "block.oilsaltmod.raw_os_block": "粗油盐块",
+
+  "creativetab.oilsalt.tab": "油盐"
 }

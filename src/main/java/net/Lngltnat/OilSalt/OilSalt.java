@@ -1,6 +1,7 @@
 package net.Lngltnat.OilSalt;
 
 import net.Lngltnat.OilSalt.block.ModBlocks;
+import net.Lngltnat.OilSalt.item.ModCreativeModeTab;
 import net.Lngltnat.OilSalt.item.ModItems;
 import org.slf4j.Logger;
 
@@ -46,6 +47,8 @@ public class OilSalt {
     public OilSalt(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
