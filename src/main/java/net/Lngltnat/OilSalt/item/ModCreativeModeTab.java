@@ -28,6 +28,8 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.DEEPSLATE_OS_ORE);
                         output.accept(ModBlocks.RAW_OS_BLOCK);
                         output.accept(ModBlocks.OS_ORE);
+                        output.accept(ModItems.WANGRANSPEAKER);
+                        output.accept(ModItems.BAR_HOP_MUSIC_DISC);
                     }).build() );
 
     public static void register(IEventBus eventBus){

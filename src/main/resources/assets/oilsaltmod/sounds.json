@@ -1,0 +1,17 @@
+{
+  "wangranspeaker_use": {
+    "subtitle": "sound.oilsaltmod.wangranspeaker_use",
+    "sounds": [
+      "oilsaltmod:wangranspeaker_use"
+    ]
+  },
+
+  "bar_hop": {
+    "sounds": [
+      {
+        "name": "oilsaltmod:bar_hop",
+        "stream": true
+      }
+    ]
+  }
+}

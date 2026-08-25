@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "oilsaltmod:os_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "oilsaltmod:os_ingot"
+  }
+}
