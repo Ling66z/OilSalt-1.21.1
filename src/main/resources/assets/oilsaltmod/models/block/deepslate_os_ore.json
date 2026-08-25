@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "oilsaltmod:block/deepslate_os_ore"
+  }
+}

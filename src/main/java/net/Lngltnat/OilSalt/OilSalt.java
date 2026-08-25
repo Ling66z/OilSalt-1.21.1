@@ -1,5 +1,6 @@
 package net.Lngltnat.OilSalt;
 
+import net.Lngltnat.OilSalt.block.ModBlocks;
 import net.Lngltnat.OilSalt.item.ModItems;
 import org.slf4j.Logger;
 
@@ -45,8 +46,8 @@ public class OilSalt {
     public OilSalt(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        ModItems.ITEMS.register(modEventBus);
-
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         // Register ourselves for server and other game events we are interested in.
@@ -71,6 +72,13 @@ public class OilSalt {
             event.accept(ModItems.SHIT);
             event.accept(ModItems.RAW_OS);
             event.accept(ModItems.OS_INGOT);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlocks.OS_BLOCK);
+            event.accept(ModBlocks.OS_ORE);
+            event.accept(ModBlocks.DEEPSLATE_OS_ORE);
+            event.accept(ModBlocks.RAW_OS_BLOCK);
         }
     }
 

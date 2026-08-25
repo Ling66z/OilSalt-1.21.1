@@ -1,5 +1,9 @@
 {
   "item.oilsaltmod.shit": "Shit",
   "item.oilsaltmod.os_ingot": "OS Ingot",
-  "item.oilsaltmod.raw_os": "Raw OS"
+  "item.oilsaltmod.raw_os": "Raw OS",
+  "block.oilsaltmod.os_block": "Block of OS",
+  "block.oilsaltmod.deepslate_os_ore": "Deepslate OS ORE",
+  "block.oilsaltmod.os_ore": "OS ore",
+  "block.oilsaltmod.raw_os_block": "Block of Raw OS"
 }
