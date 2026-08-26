@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "os_ingot",
+  "ingredient": {
+    "item": "oilsaltmod:deepslate_os_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "oilsaltmod:os_ingot"
+  }
+}

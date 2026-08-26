@@ -21,10 +21,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> WANGRANSPEAKER = ITEMS.register("wangran_speaker",
-            ()-> new WangRanSpeakerItem(new Item.Properties().durability(64)));
+            () -> new WangRanSpeakerItem(new Item.Properties().durability(64)));
 
     public static final DeferredItem<Item> BAR_HOP_MUSIC_DISC = ITEMS.register("bar_hop_music_disc",
-            ()-> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_HOP_KEY).stacksTo(1)));
+            () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_HOP_KEY).stacksTo(1)));
+
+    public static final DeferredItem<Item> SHRIMP = ITEMS.register("shrimp",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SHRIMP)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

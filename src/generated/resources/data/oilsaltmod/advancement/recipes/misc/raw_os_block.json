@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_os": {
+      "conditions": {
+        "items": [
+          {
+            "items": "oilsaltmod:raw_os"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "oilsaltmod:raw_os_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_os"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "oilsaltmod:raw_os_block"
+    ]
+  }
+}

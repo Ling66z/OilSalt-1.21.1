@@ -30,6 +30,7 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.OS_ORE);
                         output.accept(ModItems.WANGRANSPEAKER);
                         output.accept(ModItems.BAR_HOP_MUSIC_DISC);
+                        output.accept(ModItems.SHRIMP);
                     }).build() );
 
     public static void register(IEventBus eventBus){
