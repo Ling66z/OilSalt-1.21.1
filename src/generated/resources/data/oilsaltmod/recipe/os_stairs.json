@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "os_ingot",
+  "key": {
+    "#": {
+      "item": "oilsaltmod:os_ingot"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "oilsaltmod:os_stairs"
+  }
+}

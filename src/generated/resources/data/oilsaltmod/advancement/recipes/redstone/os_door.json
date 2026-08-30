@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_os_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "oilsaltmod:os_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "oilsaltmod:os_door"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_os_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "oilsaltmod:os_door"
+    ]
+  }
+}

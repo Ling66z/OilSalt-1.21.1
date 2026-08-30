@@ -58,6 +58,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         poreBlasting(recipeOutput,OS_SMELTABLES,RecipeCategory.MISC,ModItems.OS_INGOT,0.25f,100,"os_ingot");
         poreSmelting(recipeOutput,OS_SMELTABLES2,RecipeCategory.MISC,ModBlocks.OS_BLOCK,0.25f,200,"os_block");
         poreBlasting(recipeOutput,OS_SMELTABLES2,RecipeCategory.MISC,ModBlocks.OS_BLOCK,0.25f,100,"os_block");
+
+        stairBuilder(ModBlocks.OS_STAIRS.get(),Ingredient.of(ModItems.OS_INGOT))
+                .group("os_ingot")
+                .unlockedBy("has_os_ingot",has(ModItems.OS_INGOT)).save(recipeOutput);
+
+        slab(recipeOutput,RecipeCategory.BUILDING_BLOCKS,ModBlocks.OS_SLAB.get(),ModItems.OS_INGOT.get());
+
+        doorBuilder(ModBlocks.OS_DOOR.get(),Ingredient.of(ModItems.OS_INGOT))
+                .group("os_ingot")
+                .unlockedBy("has_os_ingot",has(ModItems.OS_INGOT)).save(recipeOutput);
+
+        trapdoorBuilder(ModBlocks.OS_TRAPDOOR.get(),Ingredient.of(ModItems.OS_INGOT))
+                .group("os_ingot")
+                .unlockedBy("has_os_ingot",has(ModItems.OS_INGOT)).save(recipeOutput);
+
     }
 
     protected static void poreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {

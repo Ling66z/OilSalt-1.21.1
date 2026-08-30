@@ -1,0 +1,12 @@
+{
+  "values": [
+    "oilsaltmod:os_block",
+    "oilsaltmod:raw_os_block",
+    "oilsaltmod:deepslate_os_ore",
+    "oilsaltmod:os_ore",
+    "oilsaltmod:os_door",
+    "oilsaltmod:os_slab",
+    "oilsaltmod:os_stairs",
+    "oilsaltmod:os_trapdoor"
+  ]
+}

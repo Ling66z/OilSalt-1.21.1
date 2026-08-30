@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "os_ingot",
+  "key": {
+    "#": {
+      "item": "oilsaltmod:os_ingot"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "oilsaltmod:os_door"
+  }
+}

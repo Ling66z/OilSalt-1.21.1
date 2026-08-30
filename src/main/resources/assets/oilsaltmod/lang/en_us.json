@@ -3,15 +3,24 @@
   "item.oilsaltmod.os_ingot": "OS Ingot",
   "item.oilsaltmod.raw_os": "Raw OS",
   "item.oilsaltmod.wangran_speaker": "WangRan Speaker",
-  "item.oilsaltmod.bar_hop_music_disc": "music_disc",
-  "item.oilsaltmod.shrimp":"shrimp",
+  "item.oilsaltmod.bar_hop_music_disc": "Music Disc",
+  "item.oilsaltmod.shrimp":"Shrimp",
+  "item.oilsaltmod.os_slab":"OS Slab",
+  "item.oilsaltmod.os_stairs":"OS Stairs",
+  "item.oilsaltmod.os_door":"OS Door",
+  "item.oilsaltmod.os_trapdoor":"OS Trapdoor",
+  "item.oilsaltmod.boom_food":"Boom food",
 
   "block.oilsaltmod.os_block": "Block of OS",
   "block.oilsaltmod.deepslate_os_ore": "Deepslate OS ORE",
   "block.oilsaltmod.os_ore": "OS ore",
+  "block.oilsaltmod.os_stairs": "OS Stairs",
+  "block.oilsaltmod.os_slab": "OS Slab",
+  "block.oilsaltmod.os_door": "OS Door",
+  "block.oilsaltmod.os_trapdoor": "OS Trapdoor",
   "block.oilsaltmod.raw_os_block": "Block of Raw OS",
 
   "creativetab.oilsalt.tab": "OilSalt",
 
-  "sound.oilsaltmod.wangranspeaker_use": "wangran:speaking"
+  "sound.oilsaltmod.wangranspeaker_use": "WangRan:Speaking"
 }

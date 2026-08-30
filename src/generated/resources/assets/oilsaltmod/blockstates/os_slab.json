@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "oilsaltmod:block/os_slab"
+    },
+    "type=double": {
+      "model": "oilsaltmod:block/os_block"
+    },
+    "type=top": {
+      "model": "oilsaltmod:block/os_slab_top"
+    }
+  }
+}

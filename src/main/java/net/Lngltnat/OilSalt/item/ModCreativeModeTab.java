@@ -31,6 +31,11 @@ public class ModCreativeModeTab {
                         output.accept(ModItems.WANGRANSPEAKER);
                         output.accept(ModItems.BAR_HOP_MUSIC_DISC);
                         output.accept(ModItems.SHRIMP);
+                        output.accept(ModItems.BOOM_FOOD);
+                        output.accept(ModBlocks.OS_STAIRS);
+                        output.accept(ModBlocks.OS_DOOR);
+                        output.accept(ModBlocks.OS_SLAB);
+                        output.accept(ModBlocks.OS_TRAPDOOR);
                     }).build() );
 
     public static void register(IEventBus eventBus){

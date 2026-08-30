@@ -4,9 +4,9 @@ import net.Lngltnat.OilSalt.OilSalt;
 import net.Lngltnat.OilSalt.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -45,6 +45,34 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.METAL)
                     .mapColor(MapColor.COLOR_GREEN)
             ));
+
+    public static final DeferredBlock<StairBlock> OS_STAIRS = registerBlock("os_stairs",
+            () -> new StairBlock(ModBlocks.OS_BLOCK.get().defaultBlockState(),
+            BlockBehaviour.Properties.of()
+                    .strength(5.0f,6.0f)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<SlabBlock> OS_SLAB = registerBlock("os_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                            .strength(5.0f,6.0f)
+                            .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<DoorBlock> OS_DOOR = registerBlock("os_door",
+            () -> new DoorBlock(BlockSetType.IRON,
+                    BlockBehaviour.Properties.of()
+                            .strength(5.0f,6.0f)
+                            .requiresCorrectToolForDrops()
+                            ));
+
+    public static final DeferredBlock<TrapDoorBlock> OS_TRAPDOOR = registerBlock("os_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.IRON,
+                    BlockBehaviour.Properties.of()
+                            .strength(5.0f,6.0f)
+                            .requiresCorrectToolForDrops()
+                            .noOcclusion()
+                            ));
+
+
 
     //DIAMOND_ORE = register((String)"diamond_ore", new DropExperienceBlock(UniformInt.of(3, 7), Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
     //        DEEPSLATE_DIAMOND_ORE = register((String)"deepslate_diamond_ore", new DropExperienceBlock(UniformInt.of(3, 7), Properties.ofLegacyCopy(DIAMOND_ORE).mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)));

@@ -22,11 +22,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.OS_BLOCK.get());
         dropSelf(ModBlocks.RAW_OS_BLOCK.get());
+        dropSelf(ModBlocks.OS_STAIRS.get());
+        dropSelf(ModBlocks.OS_TRAPDOOR.get());
 
         add(ModBlocks.OS_ORE.get(),
                 block -> createOreDrop(ModBlocks.OS_ORE.get(), ModItems.RAW_OS.get()));
         add(ModBlocks.DEEPSLATE_OS_ORE.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_OS_ORE.get(), ModItems.RAW_OS.get()));
+
+        add(ModBlocks.OS_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.OS_SLAB.get()));
+
+        add(ModBlocks.OS_DOOR.get(),
+                block -> createDoorTable(ModBlocks.OS_DOOR.get()));
     }
 
     @Override

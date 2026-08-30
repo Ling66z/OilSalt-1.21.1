@@ -2,16 +2,32 @@
   "item.oilsaltmod.shit": "屎",
   "item.oilsaltmod.os_ingot": "油盐锭",
   "item.oilsaltmod.raw_os": "粗油盐",
-  "item.oilsaltmod.wangran_speaker": "王冉扬声器",
-  "item.oilsaltmod.bar_hop_music_disc": "音乐唱片",
+  "item.oilsaltmod.wangran_speaker": "§e§l王冉扬声器§7",
+  "item.oilsaltmod.bar_hop_music_disc": "§e§l音乐唱片§7",
   "item.oilsaltmod.shrimp":"小虾",
+  "item.oilsaltmod.os_slab":"油盐半砖",
+  "item.oilsaltmod.os_stairs":"油盐楼梯",
+  "item.oilsaltmod.os_door":"油盐门",
+  "item.oilsaltmod.os_trapdoor":"油盐活板门",
+  "item.oilsaltmod.boom_food":"爆炸食物",
+
 
   "block.oilsaltmod.os_block": "油盐块",
   "block.oilsaltmod.deepslate_os_ore": "深层油盐矿石",
   "block.oilsaltmod.os_ore": "油盐矿石",
   "block.oilsaltmod.raw_os_block": "粗油盐块",
+  "block.oilsaltmod.os_stairs": "油盐楼梯",
+  "block.oilsaltmod.os_slab": "油盐半砖",
+  "block.oilsaltmod.os_door": "油盐门",
+  "block.oilsaltmod.os_trapdoor": "油盐活板门",
+
 
   "creativetab.oilsalt.tab": "油盐",
 
-  "sound.oilsaltmod.wangranspeaker_use": "王冉:叫唤"
+  "sound.oilsaltmod.wangranspeaker_use": "王冉:叫唤",
+
+  "tooltip.oilsaltmod.boom_food.tooltip": "消化系统表示压力过大，并决定启动自毁程序。砰！",
+  "tooltip.oilsaltmod.wangranspeaker.shift_down": "§7一个实用的扬声器，能发出很高兴的声音",
+  "tooltip.oilsaltmod.wangranspeaker.shift_up": "按住 §e§lSHIFT §7查看详情",
+  "tooltip.oilsaltmod.shrimp.tooltip": "吃了让你§e§l飞起来§7！"
 }

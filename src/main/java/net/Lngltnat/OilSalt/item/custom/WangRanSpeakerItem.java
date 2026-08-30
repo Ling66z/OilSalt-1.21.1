@@ -1,6 +1,8 @@
 package net.Lngltnat.OilSalt.item.custom;
 
 import net.Lngltnat.OilSalt.sound.ModSounds;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -10,7 +12,10 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 public class WangRanSpeakerItem extends Item {
 
@@ -38,5 +43,16 @@ public class WangRanSpeakerItem extends Item {
         }
 
         return InteractionResultHolder.success(player.getItemInHand(usedHand));
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        if(Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.wangranspeaker.shift_down"));
+        } else {
+            tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.wangranspeaker.shift_up"));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

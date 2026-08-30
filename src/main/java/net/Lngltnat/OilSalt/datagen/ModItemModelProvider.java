@@ -1,6 +1,7 @@
 package net.Lngltnat.OilSalt.datagen;
 
 import net.Lngltnat.OilSalt.OilSalt;
+import net.Lngltnat.OilSalt.block.ModBlocks;
 import net.Lngltnat.OilSalt.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.fml.common.Mod;
@@ -23,5 +24,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SHRIMP.get());
         basicItem(ModItems.RAW_OS.get());
         basicItem(ModItems.WANGRANSPEAKER.get());
+        basicItem(ModItems.BOOM_FOOD.get());
+
+        basicItem(ModBlocks.OS_DOOR.asItem());
     }
 }
