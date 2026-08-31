@@ -17,8 +17,8 @@ public class ModDataComponent {
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, OilSalt.MODID);
 
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> OS_PICKAXE_MODE = register("os_pickaxe_mode",
-            booleanBuilder -> booleanBuilder.persistent(Codec.BOOL) );
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> OS_TOOL_MODE = register("os_tool_mode",
+            booleanBuilder -> booleanBuilder.persistent(Codec.BOOL));
 
 
     private static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(

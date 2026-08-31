@@ -4,10 +4,9 @@ package net.Lngltnat.OilSalt.event;
 import net.Lngltnat.OilSalt.OilSalt;
 import net.Lngltnat.OilSalt.component.ModDataComponent;
 import net.Lngltnat.OilSalt.item.custom.OsPickaxeItem;
+import net.Lngltnat.OilSalt.item.custom.OsToolItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -29,20 +28,20 @@ public class ModEvents {
     private static long lastToggleTime = 0;
 
     @SubscribeEvent
-    public static void onOsToolUsage(BlockEvent.@NotNull BreakEvent event) {
+    public static void onOsToolDestroyed(BlockEvent.@NotNull BreakEvent event) {
         Player player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
-        boolean mode = mainHandItem.getOrDefault(ModDataComponent.OS_PICKAXE_MODE.get(), false);
+        boolean mode = mainHandItem.getOrDefault(ModDataComponent.OS_TOOL_MODE.get(), false);
 
         if (mode) {
-            if(mainHandItem.getItem() instanceof OsPickaxeItem osPickaxe && player instanceof ServerPlayer serverPlayer) {
+            if (mainHandItem.getItem() instanceof OsToolItem osToolItem && player instanceof ServerPlayer serverPlayer) {
                 BlockPos initialBlockPos = event.getPos();
-                if(HARVESTED_BLOCKS.contains(initialBlockPos)) {
+                if (HARVESTED_BLOCKS.contains(initialBlockPos)) {
                     return;
                 }
 
-                for(BlockPos pos : OsPickaxeItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
-                    if(pos.equals(initialBlockPos) || !osPickaxe.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                for (BlockPos pos : OsToolItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+                    if (pos.equals(initialBlockPos) || !osToolItem.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
                         continue;
                     }
 
@@ -56,26 +55,25 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void isShiftandRightClicked(PlayerInteractEvent.RightClickItem event){
+    public static void isShiftandRightClicked(PlayerInteractEvent.RightClickItem event) {
         Player player = event.getEntity();
         ItemStack mainHandItem = player.getMainHandItem();
-
 
 
         if (event.getSide() != LogicalSide.SERVER) return;
 //        long now = System.currentTimeMillis();
 //        if (now - lastToggleTime < 200) return;
 //        lastToggleTime = now;
-        if (!(mainHandItem.getItem() instanceof OsPickaxeItem osPickaxe)) return;
+        if (!(mainHandItem.getItem() instanceof OsToolItem osToolItem)) return;
         //if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (!(player.isShiftKeyDown())) return;
 
-        DataComponentType<Boolean> component = ModDataComponent.OS_PICKAXE_MODE.get();
+        DataComponentType<Boolean> component = ModDataComponent.OS_TOOL_MODE.get();
         boolean currentMode = mainHandItem.getOrDefault(component, false);
 //        OilSalt.LOGGER.info("Before toggle: currentMode = {}", currentMode); //找问题用的
 
         boolean newMode = !currentMode;
-        mainHandItem.set(component,newMode);
+        mainHandItem.set(component, newMode);
 
 //        boolean afterSet = mainHandItem.getOrDefault(component, false); //找问题用的
 //        OilSalt.LOGGER.info("After set: afterSet = {}", afterSet);

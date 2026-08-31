@@ -19,8 +19,8 @@ public class BoomFoodItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
 
-        if(!level.isClientSide()){
-            level.explode(null,livingEntity.getX(),livingEntity.getY(),livingEntity.getZ(),3.0F,false, Level.ExplosionInteraction.BLOCK.NONE);
+        if (!level.isClientSide()) {
+            level.explode(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 3.0F, false, Level.ExplosionInteraction.BLOCK.NONE);
         }
 
         return super.finishUsingItem(stack, level, livingEntity);

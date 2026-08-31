@@ -1,9 +1,7 @@
 package net.Lngltnat.OilSalt.item;
 
 import net.Lngltnat.OilSalt.OilSalt;
-import net.Lngltnat.OilSalt.item.custom.BoomFoodItem;
-import net.Lngltnat.OilSalt.item.custom.OsPickaxeItem;
-import net.Lngltnat.OilSalt.item.custom.WangRanSpeakerItem;
+import net.Lngltnat.OilSalt.item.custom.*;
 import net.Lngltnat.OilSalt.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -55,8 +53,8 @@ public class ModItems {
                     .fireResistant()
                     .attributes(PickaxeItem.createAttributes(ModToolTiers.OS,1.1F,-2.8F))));
 
-    public static final DeferredItem<ShovelItem> OS_SHOVEL = ITEMS.register("os_shovel",
-            () -> new ShovelItem(ModToolTiers.OS,new Item.Properties()
+    public static final DeferredItem<OsShovelItem> OS_SHOVEL = ITEMS.register("os_shovel",
+            () -> new OsShovelItem(ModToolTiers.OS,new Item.Properties()
                     .fireResistant()
                     .attributes(ShovelItem.createAttributes(ModToolTiers.OS,1.6F,-3.0F))));
 
@@ -65,8 +63,8 @@ public class ModItems {
                     .fireResistant()
                     .attributes(HoeItem.createAttributes(ModToolTiers.OS,-3.9F,-0.0F))));
 
-    public static final DeferredItem<AxeItem> OS_AXE = ITEMS.register("os_axe",
-            () -> new AxeItem(ModToolTiers.OS,new Item.Properties()
+    public static final DeferredItem<OsAxeItem> OS_AXE = ITEMS.register("os_axe",
+            () -> new OsAxeItem(ModToolTiers.OS,new Item.Properties()
                     .fireResistant()
                     .attributes(AxeItem.createAttributes(ModToolTiers.OS,6.0F,-3.0F))));
 
