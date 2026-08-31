@@ -71,14 +71,14 @@ public class ModEvents {
         if (!(player.isShiftKeyDown())) return;
 
         DataComponentType<Boolean> component = ModDataComponent.OS_PICKAXE_MODE.get();
-        boolean currentMode = mainHandItem.getOrDefault(component, false); //找问题用的
-        OilSalt.LOGGER.info("Before toggle: currentMode = {}", currentMode);
+        boolean currentMode = mainHandItem.getOrDefault(component, false);
+//        OilSalt.LOGGER.info("Before toggle: currentMode = {}", currentMode); //找问题用的
 
         boolean newMode = !currentMode;
         mainHandItem.set(component,newMode);
 
-        boolean afterSet = mainHandItem.getOrDefault(component, false); //找问题用的
-        OilSalt.LOGGER.info("After set: afterSet = {}", afterSet);
+//        boolean afterSet = mainHandItem.getOrDefault(component, false); //找问题用的
+//        OilSalt.LOGGER.info("After set: afterSet = {}", afterSet);
 
         player.displayClientMessage(
                 Component.literal((newMode ? "§a开启" : "§c关闭") + " 3×3 挖掘模式"),
