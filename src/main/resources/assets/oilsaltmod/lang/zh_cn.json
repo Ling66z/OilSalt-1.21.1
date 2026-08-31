@@ -10,6 +10,12 @@
   "item.oilsaltmod.os_door":"油盐门",
   "item.oilsaltmod.os_trapdoor":"油盐活板门",
   "item.oilsaltmod.boom_food":"爆炸食物",
+  "item.oilsaltmod.os_upgrade_smithing_template":"油盐锻造模版",
+  "item.oilsaltmod.os_sword":"油盐剑",
+  "item.oilsaltmod.os_pickaxe":"油盐稿",
+  "item.oilsaltmod.os_shovel":"油盐铲",
+  "item.oilsaltmod.os_hoe":"油盐锄",
+  "item.oilsaltmod.os_axe":"油盐斧",
 
 
   "block.oilsaltmod.os_block": "油盐块",
@@ -29,5 +35,11 @@
   "tooltip.oilsaltmod.boom_food.tooltip": "消化系统表示压力过大，并决定启动自毁程序。砰！",
   "tooltip.oilsaltmod.wangranspeaker.shift_down": "§7一个实用的扬声器，能发出很高兴的声音",
   "tooltip.oilsaltmod.wangranspeaker.shift_up": "按住 §e§lSHIFT §7查看详情",
-  "tooltip.oilsaltmod.shrimp.tooltip": "吃了让你§e§l飞起来§7！"
+  "tooltip.oilsaltmod.shrimp.tooltip": "吃了让你§e§l飞起来§7！",
+
+  "item.oilsaltmod.os_upgrade_smithing_template.applies_to": "§9下界合金装备",
+  "item.oilsaltmod.os_upgrade_smithing_template.ingredients": "§9油盐锭",
+  "item.oilsaltmod.os_upgrade_smithing_template.base_slot_description": "放入下界合金盔甲、武器或工具",
+  "item.oilsaltmod.os_upgrade_smithing_template.additions_slot_description": "放入油盐锭",
+  "item.oilsaltmod.os_upgrade_smithing_template.new": "§8油盐升级"
 }

@@ -3,9 +3,12 @@ package net.Lngltnat.OilSalt.datagen;
 import net.Lngltnat.OilSalt.OilSalt;
 import net.Lngltnat.OilSalt.block.ModBlocks;
 import net.Lngltnat.OilSalt.item.ModItems;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -73,6 +76,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .group("os_ingot")
                 .unlockedBy("has_os_ingot",has(ModItems.OS_INGOT)).save(recipeOutput);
 
+        osSmithing(recipeOutput,Items.NETHERITE_AXE,RecipeCategory.TOOLS,ModItems.OS_AXE.get());
+        osSmithing(recipeOutput,Items.NETHERITE_PICKAXE,RecipeCategory.TOOLS,ModItems.OS_PICKAXE.get());
+        osSmithing(recipeOutput,Items.NETHERITE_HOE,RecipeCategory.TOOLS,ModItems.OS_HOE.get());
+        osSmithing(recipeOutput,Items.NETHERITE_SWORD,RecipeCategory.TOOLS,ModItems.OS_SWORD.get());
+        osSmithing(recipeOutput,Items.NETHERITE_SHOVEL,RecipeCategory.TOOLS,ModItems.OS_SHOVEL.get());
+
+
+
+
+
     }
 
     protected static void poreSmelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {
@@ -93,4 +106,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
 
     }
+
+    protected static void osSmithing(RecipeOutput recipeOutput, Item ingredientItem, RecipeCategory category, Item resultItem) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(new ItemLike[]{ModItems.OS_UPGRADE_SMITHING_TEMPLATE.get()}), Ingredient.of(new ItemLike[]{ingredientItem}), Ingredient.of(new ItemLike[]{ModItems.OS_INGOT.get()}), category, resultItem).unlocks("has_os_ingot", has((ItemLike)ModItems.OS_INGOT.get())).save(recipeOutput, getItemName(resultItem) + "_smithing");
+    }
+
+
 }

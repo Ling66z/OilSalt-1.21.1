@@ -2,6 +2,7 @@ package net.Lngltnat.OilSalt.datagen;
 
 import net.Lngltnat.OilSalt.OilSalt;
 import net.Lngltnat.OilSalt.block.ModBlocks;
+import net.Lngltnat.OilSalt.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -28,7 +29,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.OS_STAIRS.get())
                 .add(ModBlocks.OS_TRAPDOOR.get());
 
-        tag(BlockTags.NEEDS_IRON_TOOL)
+        tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.OS_BLOCK.get())
                 .add(ModBlocks.RAW_OS_BLOCK.get())
                 .add(ModBlocks.DEEPSLATE_OS_ORE.get())
@@ -37,6 +38,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.OS_SLAB.get())
                 .add(ModBlocks.OS_STAIRS.get())
                 .add(ModBlocks.OS_TRAPDOOR.get());
+
+        tag(ModTags.Blocks.NEEDS_OS_TOOL)
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+
+        tag(ModTags.Blocks.INCORRECT_FOR_OS_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
+                .remove(ModTags.Blocks.NEEDS_OS_TOOL);
 
     }
 }

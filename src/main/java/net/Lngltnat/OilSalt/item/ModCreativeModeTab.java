@@ -36,6 +36,12 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.OS_DOOR);
                         output.accept(ModBlocks.OS_SLAB);
                         output.accept(ModBlocks.OS_TRAPDOOR);
+                        output.accept(ModItems.OS_HOE);
+                        output.accept(ModItems.OS_SWORD);
+                        output.accept(ModItems.OS_AXE);
+                        output.accept(ModItems.OS_PICKAXE);
+                        output.accept(ModItems.OS_SHOVEL);
+                        output.accept(ModItems.OS_UPGRADE_SMITHING_TEMPLATE);
                     }).build() );
 
     public static void register(IEventBus eventBus){

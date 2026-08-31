@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#oilsaltmod:needs_os_tool"
+  ],
+  "values": [
+    "#minecraft:incorrect_for_netherite_tool"
+  ]
+}

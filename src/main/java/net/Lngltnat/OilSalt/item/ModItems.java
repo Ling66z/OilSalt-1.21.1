@@ -2,16 +2,16 @@ package net.Lngltnat.OilSalt.item;
 
 import net.Lngltnat.OilSalt.OilSalt;
 import net.Lngltnat.OilSalt.item.custom.BoomFoodItem;
+import net.Lngltnat.OilSalt.item.custom.OsPickaxeItem;
 import net.Lngltnat.OilSalt.item.custom.WangRanSpeakerItem;
 import net.Lngltnat.OilSalt.sound.ModSounds;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class ModItems {
     public static final DeferredItem<Item> SHRIMP = ITEMS.register("shrimp",
             () -> new Item(new Item.Properties().food(ModFoodProperties.SHRIMP)) {
                 @Override
-                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.shrimp.tooltip"));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
@@ -45,8 +45,74 @@ public class ModItems {
     public static final DeferredItem<Item> BOOM_FOOD = ITEMS.register("boom_food",
             () -> new BoomFoodItem(new Item.Properties().food(ModFoodProperties.BOOM_FOOD)));
 
+    public static final DeferredItem<SwordItem> OS_SWORD = ITEMS.register("os_sword",
+            () -> new SwordItem(ModToolTiers.OS,new Item.Properties()
+                    .fireResistant()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.OS,4,-2.4F))));
+
+    public static final DeferredItem<OsPickaxeItem> OS_PICKAXE = ITEMS.register("os_pickaxe",
+            () -> new OsPickaxeItem(ModToolTiers.OS,new Item.Properties()
+                    .fireResistant()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.OS,1.1F,-2.8F))));
+
+    public static final DeferredItem<ShovelItem> OS_SHOVEL = ITEMS.register("os_shovel",
+            () -> new ShovelItem(ModToolTiers.OS,new Item.Properties()
+                    .fireResistant()
+                    .attributes(ShovelItem.createAttributes(ModToolTiers.OS,1.6F,-3.0F))));
+
+    public static final DeferredItem<HoeItem> OS_HOE = ITEMS.register("os_hoe",
+            () -> new HoeItem(ModToolTiers.OS,new Item.Properties()
+                    .fireResistant()
+                    .attributes(HoeItem.createAttributes(ModToolTiers.OS,-3.9F,-0.0F))));
+
+    public static final DeferredItem<AxeItem> OS_AXE = ITEMS.register("os_axe",
+            () -> new AxeItem(ModToolTiers.OS,new Item.Properties()
+                    .fireResistant()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.OS,6.0F,-3.0F))));
+
+
+    private static final Component appliesTo = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.applies_to");
+    private static final Component ingredients = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.ingredients");
+    private static final Component upgradeDescription = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.new");
+    private static final Component baseSlotDescription = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.base_slot_description");
+    private static final Component additionsSlotDescription = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.additions_slot_description");
+
+    public static final DeferredItem<SmithingTemplateItem> OS_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("os_upgrade_smithing_template",
+            () -> new SmithingTemplateItem(appliesTo,ingredients,upgradeDescription,baseSlotDescription,additionsSlotDescription,createOsBaseSlotIcons(),createOsAdditionalSlotIcons()));
+
+
+    //NETHERITE_SWORD = registerItem((String)"netherite_sword", new SwordItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3, -2.4F))));
+    //        NETHERITE_SHOVEL = registerItem((String)"netherite_shovel", new ShovelItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 1.5F, -3.0F))));
+    //        NETHERITE_PICKAXE = registerItem((String)"netherite_pickaxe", new PickaxeItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 1.0F, -2.8F))));
+    //        NETHERITE_AXE = registerItem((String)"netherite_axe", new AxeItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 5.0F, -3.0F))));
+    //        NETHERITE_HOE = registerItem((String)"netherite_hoe", new HoeItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(HoeItem.createAttributes(Tiers.NETHERITE, -4.0F, 0.0F))));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    // 在你的 ModItems 类（或任意工具类）中添加以下两个方法
+
+
+    private static List<ResourceLocation> createOsBaseSlotIcons() {
+        return List.of(
+                ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet"),
+                ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate"),
+                ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings"),
+                ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots"),
+                ResourceLocation.withDefaultNamespace("item/empty_slot_hoe"),
+                ResourceLocation.withDefaultNamespace("item/empty_slot_axe"),
+                ResourceLocation.withDefaultNamespace("item/empty_slot_sword"),
+                ResourceLocation.withDefaultNamespace("item/empty_slot_shovel"),
+                ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe")
+        );
+    }
+
+
+    private static List<ResourceLocation> createOsAdditionalSlotIcons() {
+        return List.of(
+                ResourceLocation.withDefaultNamespace("item/empty_slot_ingot")
+        );
     }
 }

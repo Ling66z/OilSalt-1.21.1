@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "oilsaltmod:os_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "result": {
+    "count": 1,
+    "id": "oilsaltmod:os_shovel"
+  },
+  "template": {
+    "item": "oilsaltmod:os_upgrade_smithing_template"
+  }
+}
