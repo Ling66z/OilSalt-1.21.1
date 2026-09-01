@@ -40,6 +40,19 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.PICKAXES)
                 .add(ModItems.OS_PICKAXE.get());
 
+        tag(ItemTags.HEAD_ARMOR)
+                .add(ModItems.OS_HELMET.get());
+
+        tag(ItemTags.CHEST_ARMOR)
+                .add(ModItems.OS_CHESTPLATE_ELYTRA.get())
+                .add(ModItems.OS_CHESTPLATE.get());
+
+        tag(ItemTags.LEG_ARMOR)
+                .add(ModItems.OS_LEGGINGS.get());
+
+        tag(ItemTags.FOOT_ARMOR)
+                .add(ModItems.OS_BOOTS.get());
+
 
 
     }

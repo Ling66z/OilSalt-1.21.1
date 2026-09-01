@@ -41,6 +41,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.OS_CHESTPLATE.get());
         basicItem(ModItems.OS_LEGGINGS.get());
         basicItem(ModItems.OS_BOOTS.get());
+        basicItem(ModItems.OS_CHESTPLATE_ELYTRA.get());
 
     }
 

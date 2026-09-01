@@ -100,6 +100,11 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(40))
                             .fireResistant()));
 
+    public static final DeferredItem<ModElytraChestplateItem> OS_CHESTPLATE_ELYTRA = ITEMS.register("os_chestplate_elytra",
+            () -> new ModElytraChestplateItem(ModArmorMaterials.OS_ARMOR_MATERIAL,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(40))
+                            .fireResistant()));
+
 
     //        NETHERITE_SWORD = registerItem((String)"netherite_sword", new SwordItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3, -2.4F))));
     //        NETHERITE_SHOVEL = registerItem((String)"netherite_shovel", new ShovelItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 1.5F, -3.0F))));
