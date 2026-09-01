@@ -31,14 +31,22 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModBlocks.OS_DOOR.asItem());
 
-        handheldItem(ModItems.OS_AXE.get());
-        handheldItem(ModItems.OS_HOE.get());
-        handheldItem(ModItems.OS_SWORD.get());
-        handheldItem(ModItems.OS_PICKAXE.get());
-        handheldItem(ModItems.OS_SHOVEL.get());
+        phandheldItem(ModItems.OS_AXE);
+        phandheldItem(ModItems.OS_HOE);
+        phandheldItem(ModItems.OS_SWORD);
+        phandheldItem(ModItems.OS_PICKAXE);
+        phandheldItem(ModItems.OS_SHOVEL);
+
+        basicItem(ModItems.OS_HELMET.get());
+        basicItem(ModItems.OS_CHESTPLATE.get());
+        basicItem(ModItems.OS_LEGGINGS.get());
+        basicItem(ModItems.OS_BOOTS.get());
+
     }
 
-    private ItemModelBuilder handheldItem(DeferredItem<?> item) {
+
+
+    private ItemModelBuilder phandheldItem(DeferredItem<?> item) {
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",
                 ResourceLocation.fromNamespaceAndPath(OilSalt.MODID,"item/" + item.getId().getPath()));

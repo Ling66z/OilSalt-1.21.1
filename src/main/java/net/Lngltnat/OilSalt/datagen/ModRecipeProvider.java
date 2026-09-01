@@ -97,10 +97,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected static <T extends AbstractCookingRecipe> void poreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> serializer, AbstractCookingRecipe.Factory<T> recipeFactory, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group, String suffix) {
-        Iterator var10 = ingredients.iterator();
+        Iterator iterator = ingredients.iterator();
 
-        while(var10.hasNext()) {
-            ItemLike itemlike = (ItemLike)var10.next();
+        while(iterator.hasNext()) {
+            ItemLike itemlike = (ItemLike)iterator.next();
             SimpleCookingRecipeBuilder.generic(Ingredient.of(new ItemLike[]{itemlike}), category, result, experience, cookingTime, serializer, recipeFactory).group(group).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(recipeOutput, OilSalt.MODID + ":" + getItemName(result) + suffix + "_" + getItemName(itemlike));
         }
@@ -108,7 +108,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected static void osSmithing(RecipeOutput recipeOutput, Item ingredientItem, RecipeCategory category, Item resultItem) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(new ItemLike[]{ModItems.OS_UPGRADE_SMITHING_TEMPLATE.get()}), Ingredient.of(new ItemLike[]{ingredientItem}), Ingredient.of(new ItemLike[]{ModItems.OS_INGOT.get()}), category, resultItem).unlocks("has_os_ingot", has((ItemLike)ModItems.OS_INGOT.get())).save(recipeOutput, getItemName(resultItem) + "_smithing");
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(new ItemLike[]{ModItems.OS_UPGRADE_SMITHING_TEMPLATE.get()}), Ingredient.of(new ItemLike[]{ingredientItem}), Ingredient.of(new ItemLike[]{ModItems.OS_INGOT.get()}), category, resultItem).unlocks("has_os_ingot", has((ItemLike)ModItems.OS_INGOT.get()))
+                .save(recipeOutput, OilSalt.MODID + ":" + getItemName(resultItem) + "_smithing");
     }
 
 

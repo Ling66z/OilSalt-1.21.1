@@ -42,6 +42,10 @@ public class ModCreativeModeTab {
                         output.accept(ModItems.OS_PICKAXE);
                         output.accept(ModItems.OS_SHOVEL);
                         output.accept(ModItems.OS_UPGRADE_SMITHING_TEMPLATE);
+                        output.accept(ModItems.OS_HELMET);
+                        output.accept(ModItems.OS_CHESTPLATE);
+                        output.accept(ModItems.OS_LEGGINGS);
+                        output.accept(ModItems.OS_BOOTS);
                     }).build() );
 
     public static void register(IEventBus eventBus){
