@@ -46,6 +46,7 @@ public class ModCreativeModeTab {
                         output.accept(ModItems.OS_CHESTPLATE);
                         output.accept(ModItems.OS_LEGGINGS);
                         output.accept(ModItems.OS_BOOTS);
+                        output.accept(ModItems.OS_CHESTPLATE_ELYTRA);
                     }).build() );
 
     public static void register(IEventBus eventBus){

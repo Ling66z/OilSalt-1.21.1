@@ -49,7 +49,7 @@ public class OilSalt {
         NeoForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
+        //modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -60,20 +60,20 @@ public class OilSalt {
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SHIT);
-            event.accept(ModItems.RAW_OS);
-            event.accept(ModItems.OS_INGOT);
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-            event.accept(ModBlocks.OS_BLOCK);
-            event.accept(ModBlocks.OS_ORE);
-            event.accept(ModBlocks.DEEPSLATE_OS_ORE);
-            event.accept(ModBlocks.RAW_OS_BLOCK);
-        }
-    }
+//    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+//        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+//            event.accept(ModItems.SHIT);
+//            event.accept(ModItems.RAW_OS);
+//            event.accept(ModItems.OS_INGOT);
+//        }
+//
+//        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+//            event.accept(ModBlocks.OS_BLOCK);
+//            event.accept(ModBlocks.OS_ORE);
+//            event.accept(ModBlocks.DEEPSLATE_OS_ORE);
+//            event.accept(ModBlocks.RAW_OS_BLOCK);
+//        }
+//    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

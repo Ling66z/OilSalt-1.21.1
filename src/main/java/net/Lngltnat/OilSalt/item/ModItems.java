@@ -100,7 +100,7 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(40))
                             .fireResistant()));
 
-    public static final DeferredItem<ModElytraChestplateItem> OS_CHESTPLATE_ELYTRA = ITEMS.register("os_chestplate_elytra",
+    public static final DeferredItem<ArmorItem> OS_CHESTPLATE_ELYTRA = ITEMS.register("os_chestplate_elytra",
             () -> new ModElytraChestplateItem(ModArmorMaterials.OS_ARMOR_MATERIAL,
                     new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(40))
                             .fireResistant()));
