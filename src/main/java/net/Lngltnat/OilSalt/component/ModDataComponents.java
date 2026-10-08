@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.UnaryOperator;
 
-public class ModDataComponent {
+public class ModDataComponents {
 
 
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
@@ -18,6 +18,9 @@ public class ModDataComponent {
 
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> OS_TOOL_MODE = register("os_tool_mode",
+            booleanBuilder -> booleanBuilder.persistent(Codec.BOOL));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> OS_ARMOR_MODE = register("os_armor_mode",
             booleanBuilder -> booleanBuilder.persistent(Codec.BOOL));
 
 

@@ -3,32 +3,29 @@ package net.Lngltnat.OilSalt.event;
 
 import net.Lngltnat.OilSalt.OilSalt;
 
-import net.Lngltnat.OilSalt.component.ModDataComponent;
-import net.Lngltnat.OilSalt.effect.ModEffects;
+import net.Lngltnat.OilSalt.component.ModDataComponents;
+import net.Lngltnat.OilSalt.item.custom.ModElytraChestplateItem;
 import net.Lngltnat.OilSalt.item.custom.OsToolItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.players.SleepStatus;
-import net.minecraft.world.entity.ai.behavior.SleepInBed;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.BedBlock;
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.LogicalSide;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
+import net.neoforged.neoforge.event.ServerChatEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.level.SleepFinishedTimeEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @EventBusSubscriber(modid = OilSalt.MODID)
 public class ModEvents {
@@ -41,7 +38,7 @@ public class ModEvents {
     public static void onOsToolDestroyed(BlockEvent.@NotNull BreakEvent event) {
         Player player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
-        boolean mode = mainHandItem.getOrDefault(ModDataComponent.OS_TOOL_MODE.get(), false);
+        boolean mode = mainHandItem.getOrDefault(ModDataComponents.OS_TOOL_MODE.get(), false);
 
         if (mode) {
             if (mainHandItem.getItem() instanceof OsToolItem osToolItem && player instanceof ServerPlayer serverPlayer) {
@@ -65,7 +62,7 @@ public class ModEvents {
 
 
     @SubscribeEvent
-    public static void isShiftandRightClicked(PlayerInteractEvent.RightClickItem event) {
+    public static void isShiftandRightClickedTool(PlayerInteractEvent.RightClickItem event) {
         Player player = event.getEntity();
         ItemStack mainHandItem = player.getMainHandItem();
 
@@ -78,7 +75,7 @@ public class ModEvents {
         //if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (!(player.isShiftKeyDown())) return;
 
-        DataComponentType<Boolean> component = ModDataComponent.OS_TOOL_MODE.get();
+        DataComponentType<Boolean> component = ModDataComponents.OS_TOOL_MODE.get();
         boolean currentMode = mainHandItem.getOrDefault(component, false);
 //        OilSalt.LOGGER.info("Before toggle: currentMode = {}", currentMode); //找问题用的
 
@@ -88,15 +85,79 @@ public class ModEvents {
 //        boolean afterSet = mainHandItem.getOrDefault(component, false); //找问题用的
 //        OilSalt.LOGGER.info("After set: afterSet = {}", afterSet);
 
-        player.displayClientMessage(
-                Component.literal((newMode ? "§a开启" : "§c关闭") + " 3×3 挖掘模式"),
-                true
-        );
+        if (newMode) {
+            player.displayClientMessage(
+                    Component.translatable("message.oilsaltmod.3x3_mode.enabled"),
+                    true
+            );
+        } else {
+            player.displayClientMessage(
+                    Component.translatable("message.oilsaltmod.3x3_mode.disabled"),
+                    true
+            );
+        }
 
         event.setCanceled(true);
 
     }
 
+    @SubscribeEvent
+    public static void isShiftandRightClickedArmor(PlayerInteractEvent.RightClickItem event) {
+        Player player = event.getEntity();
+        ItemStack mainHandItem = player.getMainHandItem();
+
+
+        if (!(mainHandItem.getItem() instanceof ModElytraChestplateItem modElytraChestplateItem)) return;
+        if (!(player.isShiftKeyDown())) return;
+        event.setCanceled(true);
+        if (event.getSide() != LogicalSide.SERVER) return;
+        DataComponentType<Boolean> component = ModDataComponents.OS_ARMOR_MODE.get();
+        boolean currentMode = mainHandItem.getOrDefault(component, true);
+        boolean newMode = !currentMode;
+        mainHandItem.set(component, newMode);
+
+        if (newMode) {
+            player.displayClientMessage(
+                    Component.translatable("message.oilsaltmod.flymode.enabled"),
+                    true
+            );
+        } else {
+            player.displayClientMessage(
+                    Component.translatable("message.oilsaltmod.flymode.disabled"),
+                    true
+            );
+        }
+
+//        player.displayClientMessage(
+//                Component.literal((newMode ? "message.oilsaltmod.flymode.enabled" : "message.oilsaltmod.flymode.disabled")),
+//                true
+//        );
+    }
+
+
+
+
+
+
+
+    @SubscribeEvent
+    public static void isSayRobloxBigCock(ServerChatEvent event){
+        Player player = event.getPlayer();
+        String rawtext = event.getRawText();
+        String RobloxBigCock = ".*罗布乐思大鸡鸡.*";
+        Level level = player.level();
+        boolean isMatch = Pattern.matches(RobloxBigCock, rawtext);
+        if(isMatch){
+            player.sendSystemMessage(Component.literal(player.getName().getString() + "不许说这种话，快点道歉！"));
+            if (!level.isClientSide()) {
+                LightningBolt lightning = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
+                lightning.setPos(player.getX(), player.getY(), player.getZ());
+                lightning.setDamage(114514f);
+                level.addFreshEntity(lightning);
+            }
+            //player.kill();
+        }
+    }
 //    @SubscribeEvent
 //    public static void onCanSleep(CanPlayerSleepEvent event) {
 //        Player player = event.getEntity();
@@ -142,6 +203,7 @@ public class ModEvents {
 //public static void SleepFinishedTime (SleepFinishedTimeEvent event){
 //
 //}
+
 
 
 

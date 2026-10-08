@@ -1,5 +1,6 @@
-package net.Lngltnat.OilSalt.item;
+package net.Lngltnat.OilSalt.item.custom;
 
+import net.Lngltnat.OilSalt.component.ModDataComponents;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -17,7 +18,8 @@ public class ModElytraChestplateItem extends ArmorItem {
 
     @Override
     public boolean canElytraFly(@NotNull ItemStack stack, @NotNull LivingEntity entity) {
-        return true;
+        return stack.getOrDefault(ModDataComponents.OS_ARMOR_MODE.get(), true);
+        //return true;
     }
 
     @Override

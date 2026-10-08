@@ -1,8 +1,10 @@
 package net.Lngltnat.OilSalt.item;
 
 import net.Lngltnat.OilSalt.OilSalt;
+import net.Lngltnat.OilSalt.component.ModDataComponents;
 import net.Lngltnat.OilSalt.item.custom.*;
 import net.Lngltnat.OilSalt.sound.ModSounds;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
@@ -43,6 +45,9 @@ public class ModItems {
     public static final DeferredItem<Item> BOOM_FOOD = ITEMS.register("boom_food",
             () -> new BoomFoodItem(new Item.Properties().food(ModFoodProperties.BOOM_FOOD)));
 
+    public static final DeferredItem<Item> CORNUCOPIA = ITEMS.register("cornucopia",
+            () -> new CornucopiaItem(new Item.Properties().stacksTo(1).food(ModFoodProperties.CORNUCOPIA)));
+
     public static final DeferredItem<SwordItem> OS_SWORD = ITEMS.register("os_sword",
             () -> new SwordItem(ModToolTiers.OS, new Item.Properties()
                     .fireResistant()
@@ -67,8 +72,6 @@ public class ModItems {
             () -> new OsAxeItem(ModToolTiers.OS, new Item.Properties()
                     .fireResistant()
                     .attributes(AxeItem.createAttributes(ModToolTiers.OS, 6.0F, -3.0F))));
-
-
 
 
     private static final Component appliesTo = Component.translatable("item.oilsaltmod.os_upgrade_smithing_template.applies_to");
@@ -103,7 +106,25 @@ public class ModItems {
     public static final DeferredItem<ArmorItem> OS_CHESTPLATE_ELYTRA = ITEMS.register("os_chestplate_elytra",
             () -> new ModElytraChestplateItem(ModArmorMaterials.OS_ARMOR_MATERIAL,
                     new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(40))
-                            .fireResistant()));
+                            .fireResistant()) {
+                public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+                    if (Screen.hasShiftDown()) {
+                        tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.os_chestplate_elytra.shift_down"));
+                    } else {
+                        tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.shift_up"));
+                    }
+                    boolean mode = stack.getOrDefault(ModDataComponents.OS_ARMOR_MODE.get(), true);
+                    if (mode) {
+                        tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.flymode.on"));
+                    } else {
+                        tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.flymode.off"));
+                    }
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
+
+    public static final DeferredItem<Item> PRIMOGEMS = ITEMS.register("primogems",
+            () -> new Item(new Item.Properties()));
 
 
     //        NETHERITE_SWORD = registerItem((String)"netherite_sword", new SwordItem(Tiers.NETHERITE, (new Item.Properties()).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3, -2.4F))));

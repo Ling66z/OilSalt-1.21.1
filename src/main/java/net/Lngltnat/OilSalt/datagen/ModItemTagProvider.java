@@ -25,6 +25,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
+
+
         tag(ItemTags.SWORDS)
                 .add(ModItems.OS_SWORD.get());
 
@@ -52,6 +54,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.FOOT_ARMOR)
                 .add(ModItems.OS_BOOTS.get());
+
 
 
 

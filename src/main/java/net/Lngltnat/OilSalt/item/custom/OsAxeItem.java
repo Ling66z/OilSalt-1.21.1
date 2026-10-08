@@ -1,6 +1,6 @@
 package net.Lngltnat.OilSalt.item.custom;
 
-import net.Lngltnat.OilSalt.component.ModDataComponent;
+import net.Lngltnat.OilSalt.component.ModDataComponents;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
@@ -22,7 +22,7 @@ public class OsAxeItem extends OsToolItem {
         } else {
             tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.shift_up"));
         }
-        boolean mode = stack.getOrDefault(ModDataComponent.OS_TOOL_MODE.get(), false);
+        boolean mode = stack.getOrDefault(ModDataComponents.OS_TOOL_MODE.get(), false);
         if (mode) {
             tooltipComponents.add(Component.translatable("tooltip.oilsaltmod.3x3mode.on"));
         } else {
