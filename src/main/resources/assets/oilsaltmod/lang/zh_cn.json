@@ -52,5 +52,6 @@
   "item.oilsaltmod.os_upgrade_smithing_template.ingredients": "§9油盐锭",
   "item.oilsaltmod.os_upgrade_smithing_template.base_slot_description": "放入下界合金盔甲、武器或工具",
   "item.oilsaltmod.os_upgrade_smithing_template.additions_slot_description": "放入油盐锭",
-  "item.oilsaltmod.os_upgrade_smithing_template.new": "§8油盐升级"
+  "item.oilsaltmod.os_upgrade_smithing_template.new": "§8油盐升级",
+  "enchantment.oilsaltmod.disc_catcher": "唱片捕手"
 }

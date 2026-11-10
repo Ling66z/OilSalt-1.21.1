@@ -2,6 +2,7 @@ package net.Lngltnat.OilSalt;
 
 import net.Lngltnat.OilSalt.block.ModBlocks;
 import net.Lngltnat.OilSalt.component.ModDataComponents;
+import net.Lngltnat.OilSalt.enchantment.ModEnchantmentEffects;
 import net.Lngltnat.OilSalt.item.ModCreativeModeTab;
 import net.Lngltnat.OilSalt.item.ModItems;
 import net.Lngltnat.OilSalt.sound.ModSounds;
@@ -38,6 +39,7 @@ public class OilSalt {
         ModBlocks.register(modEventBus);
         ModSounds.register(modEventBus);
         ModDataComponents.register(modEventBus);
+        //ModEnchantmentEffects.register(modEventBus);
         //ModEffects.register(modEventBus);
 
 

@@ -4,21 +4,30 @@ package net.Lngltnat.OilSalt.event;
 import net.Lngltnat.OilSalt.OilSalt;
 
 import net.Lngltnat.OilSalt.component.ModDataComponents;
+import net.Lngltnat.OilSalt.enchantment.ModEnchantments;
 import net.Lngltnat.OilSalt.item.custom.ModElytraChestplateItem;
 import net.Lngltnat.OilSalt.item.custom.OsToolItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.LogicalSide;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ServerChatEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import org.jetbrains.annotations.NotNull;
@@ -156,6 +165,52 @@ public class ModEvents {
                 level.addFreshEntity(lightning);
             }
             //player.kill();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingDrops(LivingDropsEvent event) {
+        // 1. 只处理苦力怕的死亡
+        if (!(event.getEntity() instanceof Creeper creeper)) return;
+
+        // 2. 击杀者必须是玩家
+        if (!(event.getSource().getEntity() instanceof Player player)) return;
+
+        // 3. 获取玩家主手武器
+        ItemStack weapon = player.getMainHandItem();
+        if (weapon.isEmpty()) return;
+
+        // 4. 获取附魔的 Holder 并读取等级
+        var enchantmentHolder = creeper.level().registryAccess()
+                .registryOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT)
+                .getHolderOrThrow(ModEnchantments.DISC_CATCHER);
+
+        int level = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, weapon);
+        if (level <= 0) return;
+
+        // 5. 概率判定：基础 30%，每级额外 +10%（可根据需要调整）
+        float chance = 0.3f + 0.1f * (level - 1);
+        // 在概率判定通过后执行
+        if (creeper.getRandom().nextFloat() < chance) {
+            // 1. 获取 c:music_discs 标签下的所有物品
+            var discTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "music_discs"));
+            var allDiscs = creeper.level().registryAccess()
+                    .registryOrThrow(Registries.ITEM)
+                    .getTag(discTag); // 返回 Optional<HolderSet.Named<Item>>
+
+            if (allDiscs.isPresent() && allDiscs.get().size() > 0) {
+                // 2. 从标签中随机选一个
+                var randomHolder = allDiscs.get().get(creeper.getRandom().nextInt(allDiscs.get().size()));
+                ItemStack randomDisc = new ItemStack(randomHolder.value());
+
+                // 3. 生成掉落物
+                ItemEntity drop = new ItemEntity(
+                        creeper.level(),
+                        creeper.getX(), creeper.getY(), creeper.getZ(),
+                        randomDisc
+                );
+                event.getDrops().add(drop);
+            }
         }
     }
 //    @SubscribeEvent

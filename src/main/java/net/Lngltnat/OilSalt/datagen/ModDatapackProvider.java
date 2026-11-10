@@ -1,6 +1,7 @@
 package net.Lngltnat.OilSalt.datagen;
 
 import net.Lngltnat.OilSalt.OilSalt;
+import net.Lngltnat.OilSalt.enchantment.ModEnchantments;
 import net.Lngltnat.OilSalt.worldgen.ModBiomeModifiers;
 import net.Lngltnat.OilSalt.worldgen.ModConfigureFeatures;
 import net.Lngltnat.OilSalt.worldgen.ModPlacedFeatures;
@@ -20,6 +21,7 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.CONFIGURED_FEATURE, ModConfigureFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
             ;
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
