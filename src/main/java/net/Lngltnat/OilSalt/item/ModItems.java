@@ -19,7 +19,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(OilSalt.MODID);
 
     public static final DeferredItem<Item> SHIT = ITEMS.register("shit",
-            () -> new Item(new Item.Properties()));
+            () -> new ShitItem(new Item.Properties()));
 
     public static final DeferredItem<Item> OS_INGOT = ITEMS.register("os_ingot",
             () -> new Item(new Item.Properties()));
@@ -52,6 +52,11 @@ public class ModItems {
             () -> new SwordItem(ModToolTiers.OS, new Item.Properties()
                     .fireResistant()
                     .attributes(SwordItem.createAttributes(ModToolTiers.OS, 4, -2.4F))));
+
+    public static final DeferredItem<SwordItem> FRAGRANT_BREAD = ITEMS.register("fragrant_bread",
+            () -> new SwordItem(ModToolTiers.OS, new Item.Properties()
+                    .fireResistant()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.OS, Integer.MAX_VALUE, -2.4F))));
 
     public static final DeferredItem<OsPickaxeItem> OS_PICKAXE = ITEMS.register("os_pickaxe",
             () -> new OsPickaxeItem(ModToolTiers.OS, new Item.Properties()

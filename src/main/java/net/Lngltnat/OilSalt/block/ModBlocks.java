@@ -14,6 +14,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+import static net.minecraft.world.level.block.Blocks.STONE;
+
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(OilSalt.MODID);
@@ -31,6 +33,9 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)
                     .mapColor(MapColor.STONE)
             ));
+
+    public static final DeferredBlock<Block> RAINBOW_BRICKS = registerBlock("rainbow_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(STONE)));
 
     public static final DeferredBlock<Block> DEEPSLATE_OS_ORE = registerBlock("deepslate_os_ore",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -71,6 +76,8 @@ public class ModBlocks {
                             .requiresCorrectToolForDrops()
                             .noOcclusion()
             ));
+
+
 
 
     //DIAMOND_ORE = register((String)"diamond_ore", new DropExperienceBlock(UniformInt.of(3, 7), Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));

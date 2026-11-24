@@ -47,5 +47,6 @@
   "tooltip.oilsaltmod.3x3mode.off": "§c3×3 Mode: Off",
   "message.oilsaltmod.3x3_mode.enabled": "§aEnabled 3×3 Mining Mode",
   "message.oilsaltmod.3x3_mode.disabled": "§cDisabled 3×3 Mining Mode",
-  "enchantment.oilsaltmod.disc_catcher": "Disc Catcher"
+  "enchantment.oilsaltmod.disc_catcher": "Disc Catcher",
+  "item.oilsaltmod.fragrant_bread": "Fragrant Bread"
 }

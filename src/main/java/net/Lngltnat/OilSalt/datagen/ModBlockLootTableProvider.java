@@ -24,6 +24,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.RAW_OS_BLOCK.get());
         dropSelf(ModBlocks.OS_STAIRS.get());
         dropSelf(ModBlocks.OS_TRAPDOOR.get());
+        dropSelf(ModBlocks.RAINBOW_BRICKS.get());
 
         add(ModBlocks.OS_ORE.get(),
                 block -> createOreDrop(ModBlocks.OS_ORE.get(), ModItems.RAW_OS.get()));

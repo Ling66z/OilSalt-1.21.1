@@ -53,6 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.OS_UPGRADE_SMITHING_TEMPLATE.get());
         basicItem(ModItems.PRIMOGEMS.get());
         basicItem(ModItems.CORNUCOPIA.get());
+        basicItem(ModItems.FRAGRANT_BREAD.get());
 
         basicItem(ModBlocks.OS_DOOR.asItem());
 

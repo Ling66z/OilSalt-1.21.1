@@ -29,6 +29,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.OS_STAIRS.get())
                 .add(ModBlocks.OS_TRAPDOOR.get());
 
+
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.OS_BLOCK.get())
                 .add(ModBlocks.RAW_OS_BLOCK.get())
